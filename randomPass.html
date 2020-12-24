@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Личный сайт студента GeekBrains</title>
+	<link rel="stylesheet" href="style.css"> 
+    <script type="text/javascript">
+
+        function readInt(){
+			var number = document.getElementById("userAnswer").value;
+			return parseInt(number);			
+		}
+
+        function write(text){
+			document.getElementById("info").innerHTML = text;
+        }
+        
+        function getRandomNumber(max){
+        return Math.round(Math.random()*max);
+        }
+        
+        function generateArray(text){                       
+            var array = [];
+            for(var i=0; i<text.length; i+=1){
+                array.push(text[i]);
+            }
+            return array;
+        }
+
+        var nums = "0123456789";
+        var letters = "abcdefghijklmnopqrstuvwxyz";
+        var upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        
+        var array = generateArray(nums).concat(generateArray(letters)).concat(generateArray(upperLetters));
+        
+        function generateText(){
+            var numOfRepet = +document.getElementById("userAnswer").value;
+            var text = "";
+            for(var i = 0; i < numOfRepet; i+=1){
+                var n = getRandomNumber(array.length - 1)
+                text += array[n];
+                }
+            write(text);
+        }
+	</script>
+</head>
+<body>
+
+<div class="content">
+	<div class="header">
+		<a href="index.html"><b>Главная</b></a>
+		<a href="puzzle.html"><b>Загадки</b></a>
+        <a href="guess.html"><b>Угадайка</b></a>
+        <a href="randomPass.html"><b>Генератор паролей</b></a>
+	</div>
+
+<div class="contentWrap">
+    <div class="content">
+        <div class="center">
+
+			<h1>Генератор случайных паролей</h1>
+
+			<div class="box">
+
+				<p id="info">Укажите длину желаемого пароля</p>
+				<input type="text" id="userAnswer">
+				<br>
+				<a href="#" onClick="generateText();" id="button">Генерировать</a>
+								
+			</div>
+
+        </div>
+    </div>
+</div>
+
+	
+
+</div>
+<div class="footer">
+	Copyright &copy; 2020 Nadezhda Donetskaya
+<div>
+
+
+</body>
+</html>
